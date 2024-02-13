@@ -52,7 +52,7 @@
             this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            //this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtUsername
             // 
@@ -61,7 +61,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(271, 20);
             this.txtUsername.TabIndex = 1;
-            this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            //this.txtUsername.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // groupBox1
             // 
@@ -77,7 +77,7 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            //this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnLogin
             // 
@@ -159,6 +159,7 @@
             this.Controls.Add(this.lblSkill);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.Text = "Login - Skills International";
             this.Load += new System.EventHandler(this.LoginForm_Load);

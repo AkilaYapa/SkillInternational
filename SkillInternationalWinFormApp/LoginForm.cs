@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseProject;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,27 +13,15 @@ namespace SkillInternationalWinFormApp
 {
     public partial class LoginForm : Form
     {
+        DBAccess objDBAccess = new DBAccess();
+        DataTable LoginTable = new DataTable();
+
         public LoginForm()
         {
             InitializeComponent();
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -57,10 +46,13 @@ namespace SkillInternationalWinFormApp
             string username = txtUsername.Text;
             string password = txtPassword.Text;
 
-            if (username == "Admin" && password == "Skills@123")
+            string query = "Select * from Logins where username='"+ username + "' AND password='"+ password + "'";
+            objDBAccess.readDatathroughAdapter(query, LoginTable);
+
+            if (LoginTable.Rows.Count>0)
             {
                 this.Hide();
-                Form1 form1 = new Form1();
+                RegisterForm form1 = new RegisterForm();
                 form1.Show();
             }
             else
@@ -83,6 +75,10 @@ namespace SkillInternationalWinFormApp
         private void btnExit_Click(object sender, EventArgs e)
         {
           DialogResult result = MessageBox.Show("Are you sure, Do you really want to Exit...?","Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }
